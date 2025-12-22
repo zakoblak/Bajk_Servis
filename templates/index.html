@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bajk Servis</title>
+
+  <link rel="icon" href="{{ url_for('static', filename='Slike/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='Slike/logo.png') }}" alt="Bajk Servis logotip">
+  </div>
+
+  <div class="naslov">
+    <a href="{{ url_for('index') }}" class="naslov-gumb">Bajk Servis</a>
+  </div>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="{{ url_for('storitve') }}">STORITVE ▾</a>
+        <ul>
+          <li><a href="{{ url_for('cenik') }}">CENIK</a></li>
+          <li><a href="{{ url_for('rezervacija') }}">REZERVACIJA</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ url_for('onas') }}">O NAS</a></li>
+      <li><a href="{{ url_for('galerija') }}">GALERIJA</a></li>
+      <li><a href="{{ url_for('kontakt') }}">KONTAKT</a></li>
+      <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+
+      {% if session.get("user") %}
+        <li><a href="{{ url_for('dashboard') }}" class="login">MOJ RAČUN</a></li>
+        <li><a href="{{ url_for('logout') }}" class="register">ODJAVA</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}" class="login">LOG IN</a></li>
+        <li><a href="{{ url_for('register') }}" class="register">REGISTER</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="domov">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <img src="{{ url_for('static', filename='Slike/IMG_6055.PNG') }}">
+        <div class="slide-caption">
+          <h3>Strokoven servis</h3>
+          <p>Vaše kolo bo pri nas vedno v najboljših rokah.</p>
+          <a href="{{ url_for('storitve') }}" class="btn-primary">Preveri storitve</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="{{ url_for('static', filename='Slike/rezervacija.jpg') }}">
+        <div class="slide-caption">
+          <h3>Enostavna rezervacija</h3>
+          <p>Rezervirajte termin hitro in brez čakanja.</p>
+
+          {% if session.get("user") %}
+            <a href="{{ url_for('rezervacija') }}" class="btn-primary">Rezerviraj zdaj</a>
+          {% else %}
+            <a href="{{ url_for('login') }}" class="btn-primary">Prijavi se</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="{{ url_for('static', filename='Slike/servis1.jpg') }}">
+        <div class="slide-caption">
+          <h3>Naša delavnica</h3>
+          <p>Moderna oprema in izkušena ekipa.</p>
+          <a href="{{ url_for('galerija') }}" class="btn-primary">Galerija</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+
+<!-- ================= VSEBINA ================= -->
+<section class="vsebinski-blok">
+  <div class="container">
+    <div class="row vsebina-row">
+      
+      <div class="col-md-7 besedilo">
+        <h2>Zakaj izbrati naš servis?</h2>
+        <p>
+          Naša prednost je strokovno znanje, hitra odzivnost in uporaba kakovostnih delov.
+          Smo zanesljiv partner za vsako popravilo – od manjših nastavitev do popolne obnove.
+        </p>
+        <p>
+          Naš tim redno nadgrajuje znanje in uporablja sodobno orodje.
+          Stranke nas priporočajo zaradi poštenega odnosa in natančnega dela.
+        </p>
+      </div>
+
+      <div class="col-md-5 slika">
+        <img src="{{ url_for('static', filename='Slike/IMG_6065.PNG') }}">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="vsebinski-blok sivo">
+  <div class="container">
+    <div class="row vsebina-row reverse">
+
+      <div class="col-md-5 slika">
+        <img src="{{ url_for('static', filename='Slike/vtis.png') }}">
+      </div>
+
+      <div class="col-md-7 besedilo">
+        <h2>Naš pristop</h2>
+        <p>
+          Vsako kolo obravnavamo individualno. Prisluhnemo vašim potrebam,
+          pregledamo stanje in predlagamo najboljšo rešitev.
+        </p>
+        <p>
+          Ne servisiramo le – svetujemo in izobražujemo.
+          Naš cilj ni le popraviti, ampak izboljšati vašo kolesarsko izkušnjo.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-vsebina">
+    <div class="ikone">
+      <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+      <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+      <a href="#"><i class="fa fa-youtube-square fa-2x"></i></a>
+    </div>
+    <div>© Bajk Servis – Zaključna naloga</div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+new Swiper('.hero-swiper', {
+  loop: true,
+  autoplay: { delay: 4500 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
+</script>
+
+</body>
+</html>

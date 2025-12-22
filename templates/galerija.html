@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bajk Servis – Galerija</title>
+
+  <link rel="icon" href="{{ url_for('static', filename='Slike/logo.png') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='Slike/logo.png') }}" alt="Bajk Servis logotip">
+  </div>
+
+  <div class="naslov">
+    <a href="{{ url_for('index') }}" class="naslov-gumb">Bajk Servis</a>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('storitve') }}">STORITVE ▾</a></li>
+      <li><a href="{{ url_for('onas') }}">O NAS</a></li>
+      <li><a href="{{ url_for('galerija') }}" class="active">GALERIJA</a></li>
+      <li><a href="{{ url_for('kontakt') }}">KONTAKT</a></li>
+      <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+
+      {% if session.get("user") %}
+        <li><a href="{{ url_for('dashboard') }}" class="login">MOJ RAČUN</a></li>
+        <li><a href="{{ url_for('logout') }}" class="register">ODJAVA</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}" class="login">LOG IN</a></li>
+        <li><a href="{{ url_for('register') }}" class="register">REGISTER</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<main class="vsebinski-blok">
+  <div class="container galerija">
+    <h1>Galerija našega dela</h1>
+    <p>Spodaj si oglejte nekaj utrinkov iz naše delavnice in opravljenih storitev.</p>
+
+    <!-- ===== SLIKE ===== -->
+    <div class="mreza">
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6055.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6055.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Servis kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3802.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3802.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Veliki servis</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6062.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6062.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Nastavitev menjalnika</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6065.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6065.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Pregled kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3227.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3227.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Menjava plaščev</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3318.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3318.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Diagnostika</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3513.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3513.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Popravilo</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6069.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6069.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Delavnica</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6071.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6071.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Delavnica</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6073.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6073.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Delavnica</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6051.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6051.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Pranje kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_6054.PNG') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_6054.PNG') }}" loading="lazy">
+        </a>
+        <figcaption>Čiščenje</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3670.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3670.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Rezultat - Zaščita kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3671.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3671.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Rezultat - Zaščita kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_3674.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_3674.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Rezultat - Zaščita kolesa</figcaption>
+      </figure>
+
+      <figure>
+        <a href="{{ url_for('static', filename='Slike/IMG_5766.jpeg') }}" class="glightbox">
+          <img src="{{ url_for('static', filename='Slike/IMG_5766.jpeg') }}" loading="lazy">
+        </a>
+        <figcaption>Delavnica</figcaption>
+      </figure>
+
+    </div>
+
+
+  <!-- ===== VIDEO ===== -->
+  <h2>Video</h2>
+  <div class="video-grid">
+    <div class="video-item">
+      <div class="video-frame">
+        <video muted playsinline preload="metadata"
+          poster="{{ url_for('static', filename='Slike/IMG_6055.PNG') }}">
+          <source src="{{ url_for('static', filename='Slike/video1.mp4') }}" type="video/mp4">
+        </video>
+
+        <a class="play-overlay glightbox-video"
+          href="{{ url_for('static', filename='Slike/video1.mp4') }}"
+          data-type="video"></a>
+        </div>
+      <h3 class="video-title">Zaščita kolesarskega okvirja</h3>
+    </div>
+
+    <div class="video-item">
+      <div class="video-frame">
+        <video muted playsinline preload="metadata"
+          poster="{{ url_for('static', filename='Slike/video2.jpg') }}">
+          <source src="{{ url_for('static', filename='Slike/video2.mp4') }}" type="video/mp4">
+        </video>
+
+        <a class="play-overlay glightbox-video"
+          href="{{ url_for('static', filename='Slike/video2.mp4') }}"
+          data-type="video"></a>
+      </div>
+      <h3 class="video-title">Servis koles profesionalnih kolesarjev</h3>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-vsebina">
+    <div class="ikone">
+      <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+      <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+      <a href="#"><i class="fa fa-youtube-square fa-2x"></i></a>
+    </div>
+    <div>© Bajk Servis</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  GLightbox({selector: '.glightbox',touchNavigation: true,loop: true});
+  GLightbox({ selector: '.glightbox-video', plyr: { autoplay: true } });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

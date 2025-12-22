@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Prijava | Bajk Servis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="{{ url_for('static', filename='Slike/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='Slike/logo.png') }}" alt="Bajk Servis">
+  </div>
+  <div class="naslov">
+    <a href="{{ url_for('index') }}" class="naslov-gumb">Bajk Servis</a>
+  </div>
+</header>
+
+<main class="auth-wrapper">
+  <div class="auth-box">
+    <h1>Prijava</h1>
+    <p>Dostop do uporabniškega računa</p>
+
+    {# sporočilo o napaki (če obstaja) #}
+    {% if error %}
+      <div class="auth-message error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" class="auth-form">
+      <label for="uporabnisko_ime">Uporabniško ime</label>
+      <input
+        type="text"
+        id="uporabnisko_ime"
+        name="uporabnisko_ime"
+        placeholder="vnesi uporabniško ime"
+        required
+      >
+
+      <label for="geslo">Geslo</label>
+      <input
+        type="password"
+        id="geslo"
+        name="geslo"
+        placeholder="vnesi geslo"
+        required
+      >
+
+      <button type="submit">Prijava</button>
+    </form>
+
+    <div class="auth-footer">
+      Še nimaš računa?
+      <a href="{{ url_for('register') }}">Registracija</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-vsebina">
+    <div>© Bajk Servis</div>
+  </div>
+</footer>
+
+</body>
+</html>

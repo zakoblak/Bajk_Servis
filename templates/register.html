@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Registracija | Bajk Servis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="{{ url_for('static', filename='Slike/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='Slike/logo.png') }}" alt="Bajk Servis">
+  </div>
+  <div class="naslov">
+    <a href="{{ url_for('index') }}" class="naslov-gumb">Bajk Servis</a>
+  </div>
+</header>
+
+<main class="auth-wrapper">
+  <div class="auth-box">
+    <h1>Registracija</h1>
+    <p>Ustvarite svoj uporabniški račun</p>
+
+    {# sporočilo o napaki ali uspehu #}
+    {% if error %}
+      <div class="auth-message error">{{ error }}</div>
+    {% endif %}
+
+    {% if success %}
+      <div class="auth-message success">{{ success }}</div>
+    {% endif %}
+
+    <form method="post" class="auth-form">
+      <label for="uporabnisko_ime">Uporabniško ime</label>
+      <input
+        type="text"
+        id="uporabnisko_ime"
+        name="uporabnisko_ime"
+        placeholder="izberi uporabniško ime"
+        required
+      >
+
+      <label for="email">E-pošta</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="vnesi e-pošto"
+        required
+      >
+
+      <label for="geslo">Geslo</label>
+      <input
+        type="password"
+        id="geslo"
+        name="geslo"
+        placeholder="izberi geslo"
+        required
+      >
+
+      <label for="geslo2">Ponovi geslo</label>
+      <input
+        type="password"
+        id="geslo2"
+        name="geslo2"
+        placeholder="ponovi geslo"
+        required
+      >
+
+      <button type="submit">Registracija</button>
+    </form>
+
+    <div class="auth-footer">
+      Že imaš račun?
+      <a href="{{ url_for('login') }}">Prijava</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-vsebina">
+    <div>© Bajk Servis</div>
+  </div>
+</footer>
+
+</body>
+</html>
