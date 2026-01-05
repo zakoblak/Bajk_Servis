@@ -275,43 +275,41 @@ nav a.register:hover{
 /* =======================
    STORITVE
 ======================= */
-.storitve .slika {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
+.storitve-blok {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  text-align: center; /* ⬅️ KLJUČNO */
+  color: #fff;
 }
 
-.storitve .slika img {
-  border-radius: 10px;
-  border: 2px solid rgba(255,255,255,0.15);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  max-width: 80%;
-  height: auto;
+/* Naslovi */
+.storitve-blok h1,
+.storitve-blok h2 {
+  margin-bottom: 20px;
 }
-.storitve-grid{
-  max-width:1100px; margin:40px auto; padding:0 24px;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;
+
+/* Odstavek */
+.storitve-blok p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
 }
-.storitve-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px; padding:22px 18px; text-align:center;
-  transition:.25s; height:100%;
+
+/* Seznami – centrirani */
+.storitve-blok ul,
+.storitve-blok ol {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0 auto 30px;
 }
-.storitve-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(0,122,204,.5);
-  box-shadow:0 12px 28px rgba(0,0,0,.35), 0 0 18px rgba(0,122,204,.24);
+
+/* Elementi seznama */
+.storitve-blok li {
+  margin-bottom: 8px;
 }
-.storitve-ico{
-  width:56px; height:56px; margin:2px auto 12px; border-radius:50%;
-  display:grid; place-items:center; font-weight:800;
-  color:#fff; background:var(--brand);
-  box-shadow:0 0 14px rgba(0,122,204,.45);
-}
-.storitve-card h3{ margin:6px 0 6px; font-size:18px; }
-.storitve-card p{ color:#e6e6e6; font-size:14px; }
+
 
 /* =======================
    CENIK
