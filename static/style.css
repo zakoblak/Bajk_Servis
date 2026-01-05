@@ -218,11 +218,59 @@ nav a.register:hover{
 /* =======================
    GENERIČNI BLOKI
 ======================= */
-.vsebinski-blok{ padding:60px 0; color:var(--text); text-align:center; }
-.vsebinski-blok.sivo{ background:rgba(255,255,255,.05); }
-.vsebinski-blok .container{ max-width:1200px; margin:0 auto; }
-h1, h2{ margin-bottom:8px; }
-section h1 + p.lead{ margin-top:6px; }
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.split-text {
+  color: var(--text);
+}
+
+.split-text h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.split-text p {
+  color: #e6e6e6;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.split-image img {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+.split-reverse .split-text { order: 2; }
+.split-reverse .split-image { order: 1; }
+
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 900px) {
+  .split-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .split-image img {
+    margin: 0 auto;
+  }
+}
+
 
 /* =======================
    STORITVE
