@@ -25,12 +25,8 @@ html, body{
 
 img{ max-width:100%; height:auto; display:block; }
 
-
 /* =======================
-   HEADER & NAV
-======================= */
-/* =======================
-   HEADER – DESKTOP (ostane kot prej)
+   HEADER
 ======================= */
 header{
   position: sticky;
@@ -49,7 +45,6 @@ header{
 .logo{ height: 70px; display:flex; align-items:center; flex:0 0 auto; }
 .logo img{ height:100%; width:auto; object-fit:contain; display:block; }
 
-/* naslov ostane v headerju, da se ne “spusti” pod meni */
 .naslov{ flex: 0 0 auto; }
 .naslov-gumb{
   color: var(--text);
@@ -95,7 +90,6 @@ nav a.login:hover, nav a.register:hover{
   border-color: var(--brand-hover);
 }
 
-/* dropdown (desktop) */
 nav li ul{
   position:absolute;
   top:100%;
@@ -121,69 +115,53 @@ nav li ul a{
 }
 nav li ul a:last-child{ border-bottom:0; }
 
-
 /* =======================
-   MOBILNO – “po vrsti”
-   (meni pod headerjem, gumbi 100% širine)
+   MOBILNI HEADER
 ======================= */
-@media (max-width: 768px){
+@media (max-width: 768px) {
 
   header{
-    flex-wrap: wrap;            /* omogoči prelom */
-    justify-content: flex-start;
-    padding: 12px 16px;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
   }
 
-  /* zgornja vrstica: logo + naslov */
-  .logo{ height: 52px; }
-  .naslov{
-    flex: 1 1 auto;
-    min-width: 0;
+  .logo{
+    order: 1;
   }
+
+  .naslov{
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
+
   .naslov-gumb{
     font-size: 34px;
     display: inline-block;
   }
 
-  /* nav gre v novo vrstico in postane stolpec */
   nav{
+    order: 3;
     width: 100%;
-    flex: 1 1 100%;
-    justify-content: flex-start;
   }
 
   nav ul{
     width: 100%;
-    flex-direction: column;     /* ⬅️ po vrsti */
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    flex-wrap: nowrap;
-    margin: 6px 0 0;
+    align-items: stretch;
   }
-
-  nav li{ width: 100%; }
 
   nav a{
     width: 100%;
     text-align: center;
-    padding: 12px 14px;
-  }
-
-  /* dropdown na telefonu: naj bo “notranji seznam” (ne lebdi) */
-  nav li ul{
-    position: static;
-    display: none;
-    margin-top: 8px;
-    border-radius: 8px;
-  }
-
-  /* na telefonu je hover nezanesljiv – focus-within dela pri tapu */
-  nav li:focus-within > ul{
-    display: flex;
+    padding: 14px;
   }
 }
-
 
 /* =======================
    GUMBI
