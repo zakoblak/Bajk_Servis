@@ -567,7 +567,7 @@ nav li ul a:last-child{ border-bottom:0; }
 /* =======================
    FAQ
 ======================= */
-.faq{ max-width:900px; margin:50px auto; padding:20px; color:var(--text); }
+.faq{ max-width:900px; margin:50px auto; padding:20px; color:var(--text); text-align: center;}
 .faq .qa{ max-width:900px; margin:0 auto; display:grid; gap:12px; }
 .faq details{
   background:rgba(255,255,255,.05);
