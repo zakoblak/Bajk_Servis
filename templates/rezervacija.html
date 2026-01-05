@@ -71,7 +71,7 @@
       </select>
 
       <label for="termin">Izberi datum:</label>
-      <input type="date" id="termin" name="termin" required>
+      <input type="date" id="termin" name="termin" min="{{ today }}" required>
 
       <label for="sporocilo">Sporočilo:</label>
       <textarea id="sporocilo" name="sporocilo" rows="4"></textarea>
