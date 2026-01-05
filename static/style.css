@@ -29,164 +29,161 @@ img{ max-width:100%; height:auto; display:block; }
 /* =======================
    HEADER & NAV
 ======================= */
+/* =======================
+   HEADER – DESKTOP (ostane kot prej)
+======================= */
 header{
   position: sticky;
   top: 0;
   z-index: 100;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
 
-  background: var(--surface);
   padding: 15px 40px;
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
-
-  flex-wrap: wrap;
 }
 
-.logo{
-  height: 80px;
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-.logo img{
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
+.logo{ height: 70px; display:flex; align-items:center; flex:0 0 auto; }
+.logo img{ height:100%; width:auto; object-fit:contain; display:block; }
 
-.naslov{
-  display: flex;
-  align-items: center;
-  flex: 1 1 auto;
-  min-width: 220px;
-}
-
+/* naslov ostane v headerju, da se ne “spusti” pod meni */
+.naslov{ flex: 0 0 auto; }
 .naslov-gumb{
   color: var(--text);
   text-decoration: none;
-  background: transparent;
-  border: none;
-
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: 44px;
   font-weight: 500;
   letter-spacing: .5px;
-
   white-space: nowrap;
-  line-height: 1;
 }
 
-nav{
-  display: flex;
-  justify-content: flex-end;
-  flex: 0 1 auto;
-}
-
-nav ul{
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-nav li{ position: relative; }
+/* nav */
+nav{ flex: 1 1 auto; display:flex; justify-content:flex-end; }
+nav ul{ list-style:none; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+nav li{ position:relative; }
 
 nav a{
-  display: block;
-  padding: 10px 18px;
-  text-decoration: none;
-  line-height: 1;
-  color: var(--text);
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  font-weight: 500;
-  transition: .25s;
+  display:block;
+  padding:10px 18px;
+  text-decoration:none;
+  line-height:1;
+  color:var(--text);
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:4px;
+  font-weight:500;
+  transition:.25s;
   white-space: nowrap;
 }
 
-nav a:hover,
-nav a:focus,
-nav a.active{
+nav a:hover, nav a:focus, nav a.active{
   background: rgba(255,255,255,.10);
   border-color: rgba(255,255,255,.55);
 }
 
-
-nav li ul{
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  display: none;
-  flex-direction: column;
-  min-width: 170px;
-
-  background: #0f1118;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.45);
-  z-index: 1000;
-  overflow: hidden;
-}
-nav li:hover > ul{ display: flex; }
-
-nav li ul a{
-  border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  padding: 10px 14px;
-}
-nav li ul a:last-child{ border-bottom: 0; }
-
-nav a.login,
-nav a.register{
+nav a.login, nav a.register{
   background-color: var(--brand);
   border-color: var(--brand);
-  color: #fff;
-  font-weight: 600;
+  color:#fff;
+  font-weight:600;
 }
-nav a.login:hover,
-nav a.register:hover{
+nav a.login:hover, nav a.register:hover{
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
 
-@media (max-width: 980px){
-  nav{
-    width: 100%;
-    justify-content: center;
-  }
-  nav ul{
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+/* dropdown (desktop) */
+nav li ul{
+  position:absolute;
+  top:100%;
+  left:0;
+  display:none;
+  flex-direction:column;
+  min-width:170px;
+  background:#0f1118;
+  border:1px solid var(--border);
+  border-radius:4px;
+  box-shadow:0 10px 24px rgba(0,0,0,.45);
+  z-index:1000;
+  overflow:hidden;
 }
+nav li:hover > ul,
+nav li:focus-within > ul{
+  display:flex;
+}
+nav li ul a{
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:10px 14px;
+}
+nav li ul a:last-child{ border-bottom:0; }
 
+
+/* =======================
+   MOBILNO – “po vrsti”
+   (meni pod headerjem, gumbi 100% širine)
+======================= */
 @media (max-width: 768px){
+
   header{
-    padding: 14px 18px;
+    flex-wrap: wrap;            /* omogoči prelom */
+    justify-content: flex-start;
+    padding: 12px 16px;
+    gap: 10px;
   }
 
-  .logo{ height: 64px; }
-
+  /* zgornja vrstica: logo + naslov */
+  .logo{ height: 52px; }
   .naslov{
-    width: auto;
+    flex: 1 1 auto;
     min-width: 0;
   }
+  .naslov-gumb{
+    font-size: 34px;
+    display: inline-block;
+  }
+
+  /* nav gre v novo vrstico in postane stolpec */
+  nav{
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
 
   nav ul{
-    gap: 8px;
+    width: 100%;
+    flex-direction: column;     /* ⬅️ po vrsti */
+    align-items: stretch;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin: 6px 0 0;
   }
 
+  nav li{ width: 100%; }
+
   nav a{
-    padding: 9px 14px;
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+  }
+
+  /* dropdown na telefonu: naj bo “notranji seznam” (ne lebdi) */
+  nav li ul{
+    position: static;
+    display: none;
+    margin-top: 8px;
+    border-radius: 8px;
+  }
+
+  /* na telefonu je hover nezanesljiv – focus-within dela pri tapu */
+  nav li:focus-within > ul{
+    display: flex;
   }
 }
+
 
 /* =======================
    GUMBI
