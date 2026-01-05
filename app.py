@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import json
 import os
-from datetime import datetime
+from datetime import datetime, date
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # =======================
@@ -81,12 +81,22 @@ def rezervacija():
         return redirect(url_for("login"))
 
     if request.method == "POST":
+        termin = request.form["termin"]
+
+        try:
+            termin_date = datetime.strptime(termin, "%Y-%m-%d").date()
+        except ValueError:
+            return "Neveljaven datum."
+
+        if termin_date < date.today():
+            return "Ne morete izbrati datuma za nazaj."
+
         nova = {
             "user": session["user"],
             "ime": request.form["ime"],
             "email": request.form["email"],
             "storitev": request.form["storitev"],
-            "termin": request.form["termin"],
+            "termin": termin,
             "sporocilo": request.form.get("sporocilo", ""),
             "ustvarjeno": datetime.now().strftime("%Y-%m-%d %H:%M")
         }
@@ -97,7 +107,8 @@ def rezervacija():
 
         return redirect(url_for("dashboard"))
 
-    return render_template("rezervacija.html")
+    return render_template("rezervacija.html", today=date.today().isoformat())
+
 
 @app.route("/onas")
 def onas():
