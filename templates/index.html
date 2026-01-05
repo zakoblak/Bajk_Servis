@@ -96,52 +96,46 @@
 
 <!-- ================= VSEBINA ================= -->
 <section class="vsebinski-blok">
-  <div class="container">
-    <div class="row vsebina-row">
-      
-      <div class="col-md-7 besedilo">
-        <h2>Zakaj izbrati naš servis?</h2>
-        <p>
-          Naša prednost je strokovno znanje, hitra odzivnost in uporaba kakovostnih delov.
-          Smo zanesljiv partner za vsako popravilo – od manjših nastavitev do popolne obnove.
-        </p>
-        <p>
-          Naš tim redno nadgrajuje znanje in uporablja sodobno orodje.
-          Stranke nas priporočajo zaradi poštenega odnosa in natančnega dela.
-        </p>
-      </div>
+  <div class="container split-section">
 
-      <div class="col-md-5 slika">
-        <img src="{{ url_for('static', filename='Slike/IMG_6065.PNG') }}">
-      </div>
-
+    <div class="split-text">
+      <h2>Zakaj izbrati naš servis?</h2>
+      <p>
+        Naša prednost je strokovno znanje, hitra odzivnost in uporaba
+        kakovostnih delov. Smo zanesljiv partner za vsako popravilo – od
+        manjših nastavitev do popolne obnove.
+      </p>
+      <p>
+        Naš tim redno nadgrajuje znanje in uporablja sodobno orodje.
+        Stranke nas priporočajo zaradi poštenega odnosa in natančnega dela.
+      </p>
     </div>
+
+    <div class="split-image">
+      <img src="{{ url_for('static', filename='Slike/IMG_6065.PNG') }}"
+           alt="Servis kolesa">
+    </div>
+
   </div>
 </section>
+
 
 <section class="vsebinski-blok sivo">
-  <div class="container">
-    <div class="row vsebina-row reverse">
+  <div class="container split-section split-reverse">
 
-      <div class="col-md-5 slika">
-        <img src="{{ url_for('static', filename='Slike/vtis.png') }}">
-      </div>
-
-      <div class="col-md-7 besedilo">
-        <h2>Naš pristop</h2>
-        <p>
-          Vsako kolo obravnavamo individualno. Prisluhnemo vašim potrebam,
-          pregledamo stanje in predlagamo najboljšo rešitev.
-        </p>
-        <p>
-          Ne servisiramo le – svetujemo in izobražujemo.
-          Naš cilj ni le popraviti, ampak izboljšati vašo kolesarsko izkušnjo.
-        </p>
-      </div>
-
+    <div class="split-text">
+      <h2>Naš pristop</h2>
+      <p>Vsako kolo obravnavamo individualno. Prisluhnemo vašim potrebam, pregledamo stanje in predlagamo najboljšo rešitev.</p>
+      <p>Ne servisiramo le – svetujemo in izobražujemo. Naš cilj ni le popraviti – ampak izboljšati vašo kolesarsko izkušnjo.</p>
     </div>
+
+    <div class="split-image">
+      <img src="{{ url_for('static', filename='Slike/vtis.png') }}" alt="Naš pristop">
+    </div>
+
   </div>
 </section>
+
 
 
 
